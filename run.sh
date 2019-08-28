@@ -25,7 +25,7 @@ else
   tmux new-session -d -s ngrok "ngrok http https://${ip}:${port}"
 fi
 
-while [$(curl -LI mazgi.com -o /dev/null -w '%{http_code}\n' -s) != 200]
+while [$(curl -LI ${ip}:4040 -o /dev/null -w '%{http_code}\n' -s) != 200]
   do
     sleep 1000
   done
